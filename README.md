@@ -25,7 +25,7 @@ We will have a starter task list available soon and you are welcome to dig in.
 _Note: Create dataset for project in data.world and link it here._
 
 
-### Getting started:  -- Outline each project will have it's own
+### Getting started: 
 * We welcome contributions from first timers
 * Browse our help wanted issues. See if there is anything that interests you.
 * Core maintainers and project leads are responsible for reviewing and merging all pull requests. In order to prevent frustrations with your first PR we recommend you reach out to our core maintainers who can help you through your first PR.
