@@ -27,7 +27,7 @@ _Note: Create dataset for project in data.world and link it here._
 
 ### Getting started: 
 * We welcome contributions from first timers
-* Browse our help wanted issues. See if there is anything that interests you.
+* Browse our help wanted issues. See if there is anything that interests you. [Tag Definitions](https://github.com/bstarling/gh-labels-template)
 * Core maintainers and project leads are responsible for reviewing and merging all pull requests. In order to prevent frustrations with your first PR we recommend you reach out to our core maintainers who can help you through your first PR.
 * Need to practice working with github in a group setting? Checkout [github-playground](https://github.com/Data4Democracy/github-playground)
 * Updates to documentation or readme are greatly appreciated and make for a great first PR. They do not need to be discussed in advance and will be merged as soon as possible.
@@ -47,4 +47,5 @@ _Note: Create dataset for project in data.world and link it here._
 
 ### Skills
 * Python : backend for ingesting data is build in python
-* javascript : Website is build with java script
+* javascript : Website is build with java script  
+
