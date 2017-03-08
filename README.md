@@ -14,7 +14,7 @@ This project we will build tools to
 * Engage user intertest through social media or similar to identify tasks for more effective actions.
 
 **Project Lead:**  
-* [@bonfiam]((https://datafordemocracy.slack.com/messages/@bonfiam )
+* [@bonfiam](https://datafordemocracy.slack.com/messages/@bonfiam )
 * [@pg](https://datafordemocracy.slack.com/messages/@pg) 
 
 **Maintainers (people with write access):**
