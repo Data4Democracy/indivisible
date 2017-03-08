@@ -9,16 +9,16 @@ Aggregating call to action sites into a single application.
 A variety of civic activism organizations have sprung up in the wake of the election to help mobilize and empower people. The organizations often operate by sending out daily or weekly “actions” that their supporters partake in – whether calling a Member of Congress’s office, attending an event, or reading a key piece of information. As these sites proliferate, it becomes difficult to effectively signal boost and target actions appropriately. 
 This project we will build tools to 
 * Identify various actions available for user by aggregating different source of data
-* Provide a clean user interface to filter and select actions they are interesed in.
+* Provide a clean user interface to filter and select actions they are interesed in
 * Build dashboard and track action progress/effectiveness over time
-* Engage user intertest through social media or similar to identify tasks for more effective actions.
+* Engage user intertest through social media or similar to identify tasks for more effective actions
 
 **Project Lead:**  
 * [@bonfiam](https://datafordemocracy.slack.com/messages/@bonfiam )
 * [@pg](https://datafordemocracy.slack.com/messages/@pg) 
 
 **Maintainers (people with write access):**
-* We need prople please ping @pg or @bonfiam for your interest. 
+* We need people; please ping @pg or @bonfiam for your interest. 
 We will have a starter task list available soon and you are welcome to dig in.
 
 **Data:** [https://data.world/data4democracy/indivisible](link)   
