@@ -14,8 +14,8 @@ This project we will build tools to
 * Engage user intertest through social media or similar to identify tasks for more effective actions.
 
 **Project Lead:**  
-* @bonfiam
-* @pg
+* [@bonfiam]((https://datafordemocracy.slack.com/messages/@bonfiam )
+* [@pg](https://datafordemocracy.slack.com/messages/@pg) 
 
 **Maintainers (people with write access):**
 * We need prople please ping @pg or @bonfiam for your interest. 
@@ -32,6 +32,19 @@ _Note: Create dataset for project in data.world and link it here._
 * Need to practice working with github in a group setting? Checkout [github-playground](https://github.com/Data4Democracy/github-playground)
 * Updates to documentation or readme are greatly appreciated and make for a great first PR. They do not need to be discussed in advance and will be merged as soon as possible.
 
+#### Project setup
+* [create anaconda virtual environment](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/)
+* clone the repository and work on the modules 
+* Use [Pylint](https://www.pylint.org/) for code formatting
+#### Using issues
+* When pick up a issue leave a comment/ mark as in progress and assign yourself. 
+* Issue comments can be used for communication 
+* wiki should be used for different documentation purposes. That will include
+    1. meeting minutes
+    2. design choices
+    3. Further read/tutorial 
+
 
 ### Skills
-* Work in progress
+* Python : backend for ingesting data is build in python
+* javascript : Website is build with java script
