@@ -1,5 +1,5 @@
 """"'
-Module to scrap data from email and dump in a text file
+Module to scrape data from email and dump in a text file
 """""
 
 """
@@ -12,7 +12,7 @@ def email_scraper(email):
 
 
 """
-For now we will save everything in text file
+For now we will save everything in a text file
 """
 
 

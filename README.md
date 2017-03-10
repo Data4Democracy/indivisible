@@ -8,10 +8,10 @@ Aggregating call to action sites into a single application.
 **Project Description:**
 A variety of civic activism organizations have sprung up in the wake of the election to help mobilize and empower people. The organizations often operate by sending out daily or weekly “actions” that their supporters partake in – whether calling a Member of Congress’s office, attending an event, or reading a key piece of information. As these sites proliferate, it becomes difficult to effectively signal boost and target actions appropriately. 
 This project we will build tools to 
-* Identify various actions available for user by aggregating different source of data
-* Provide a clean user interface to filter and select actions they are interesed in
-* Build dashboard and track action progress/effectiveness over time
-* Engage user intertest through social media or similar to identify tasks for more effective actions
+* Identify various actions available for users by aggregating different sources of data
+* Provide a clean user interface to filter and select actions they are interested in
+* Build a dashboard and track action progress/effectiveness over time
+* Engage user interest through social media or similar means to identify tasks for more effective actions
 
 **Project Lead:**  
 * [@bonfiam](https://datafordemocracy.slack.com/messages/@bonfiam )
@@ -37,15 +37,15 @@ _Note: Create dataset for project in data.world and link it here._
 * clone the repository and work on the modules 
 * Use [Pylint](https://www.pylint.org/) for code formatting
 #### Using issues
-* When pick up a issue leave a comment/ mark as in progress and assign yourself. 
+* When picking up an issue leave a comment/ mark as in progress and assign yourself. 
 * Issue comments can be used for communication 
 * wiki should be used for different documentation purposes. That will include
     1. meeting minutes
     2. design choices
-    3. Further read/tutorial 
+    3. Further reading/tutorials
 
 
 ### Skills
-* Python : backend for ingesting data is build in python
-* javascript : Website is build with java script  
+* Python : backend for ingesting data that is built in python
+* javascript : the website is built with java script  
 
