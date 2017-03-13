@@ -36,6 +36,10 @@ _Note: Create dataset for project in data.world and link it here._
 * [create anaconda virtual environment](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/)
 * clone the repository and work on the modules 
 * Use [Pylint](https://www.pylint.org/) for code formatting
+
+### Updating wiki
+[github wiki update guide](https://help.github.com/articles/adding-and-editing-wiki-pages-locally/)
+
 #### Using issues
 * When picking up an issue leave a comment/ mark as in progress and assign yourself. 
 * Issue comments can be used for communication 
