@@ -46,5 +46,5 @@ class EmailMonitor(Thread):
 
 
 if __name__ == '__main__':
-    p = EmailParser('pop.gmail.com', 'indivisible_bot', '!(ggL"JDF=6E@XbF')
+    p = EmailParser('pop.gmail.com', 'indivisible_bot', 'PASSWORD_GOES_HERE')
     EmailMonitor(None, scrap, p)
