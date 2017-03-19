@@ -22,11 +22,11 @@ class EmailParser(object):
         pop_conn.user(self.user)
         pop_conn.pass_(self.password)
         msg_count = len(pop_conn.list()[1])
-        messages = [pop_conn.retr(i) for i in range(1, msg_count + 1)]
-        # Concat message pieces:
-        messages = ["\n".join(mssg[1]) for mssg in messages]
-        # Parse message intom an email object:
-        messages = [parser.Parser().parsestr(mssg) for mssg in messages]
+        messages = []
+        p = parser.Parser()
+        for i in range(1, msg_count + 1):
+            msg = '\n'.join(pop_conn.retr(i)[1])
+            messages.push(p.parsestr(msg))
         pop_conn.quit()
         return messages
 
