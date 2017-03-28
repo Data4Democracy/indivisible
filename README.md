@@ -21,7 +21,7 @@ This project we will build tools to
 * We need people; please ping @pg or @bonfiam for your interest. 
 We will have a starter task list available soon and you are welcome to dig in.
 
-**Data:** [https://data.world/data4democracy/indivisible](link)   
+**Data:** [https://data.world/data4democracy/indivisible](https://data.world/data4democracy/indivisible)   
 _Note: Create dataset for project in data.world and link it here._
 
 
