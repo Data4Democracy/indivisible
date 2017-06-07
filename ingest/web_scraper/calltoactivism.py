@@ -98,7 +98,7 @@ class CallToActivismScraper(AbstractWebScraper):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
     #  init scraper
     scraper = CallToActivismScraper()
     #  scrap and save current events
