@@ -200,10 +200,11 @@ class AbstractWebScraper(object):
         """
         details_list = []
         for url in test_urls:
+            print('test_extract_details(): url = {}'.format(url))
             soup = self.get_soup(url)
             details = self.extract_details(soup)
-            print('test_extract_details(): url = {}'.format(url))
             for k, v in details.items():
                 print('{: <10s} : {}'.format(k, v))
+            print('-' * 80)
             details_list.append(details)
         return details_list

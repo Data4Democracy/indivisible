@@ -35,6 +35,7 @@ class CallToActivismScraper(AbstractWebScraper):
         details : dict
             Dictionary containing event-info.
         """
+        import re
         details = dict()
         details['SOURCE'] = 'calltoactivism.com'
         details['NOTES'] = 'Parsed www.calltoactivism.com for training data'
@@ -43,21 +44,28 @@ class CallToActivismScraper(AbstractWebScraper):
              .find('div',
                    class_='wsite-section-content'))
 
-        details['NAME'] = (d.find('h2')
-                           .get_text('\n', strip=True)
-                           .upper()
-                           .split('\n')
-                           [-1])
+        try:
+            event_name = (d.find('h2')
+                          .get_text('\n', strip=True)
+                          .upper()
+                          .split('\n')
+                          [-1])
+        except AttributeError:
+            pass
+        details['NAME'] = event_name
 
         details['TAGS'] = []
         details['TYPES'] = []
         details['LOCATION'] = None
         details['LOCATION_GMAPS'] = None
         details['SOCIAL'] = []
-        details['DATE_TIME'] = (d.find('h2')
-                                .get_text('\n', strip=True)
-                                .split('\n')
-                                [1])
+        event_date_time = None
+        for h in soup.find_all('h2'):
+            txt = h.get_text()
+            match = re.compile('\d+/\d+/20\d+').search(txt)
+            if match:
+                event_date_time = txt[match.start():match.end()]
+        details['DATE_TIME'] = event_date_time
         details['ORGANIZER'] = None
 
         #  captialize titles

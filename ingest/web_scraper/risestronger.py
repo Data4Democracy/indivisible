@@ -38,6 +38,7 @@ class RiseStrongerScraper(AbstractWebScraper):
         details : dict
             Dictionary containing event-info.
         """
+        import re
         details = dict()
         details['SOURCE'] = 'risestronger.org'
         details['NOTES'] = 'Parsed www.risestronger.org for training data'
@@ -47,54 +48,72 @@ class RiseStrongerScraper(AbstractWebScraper):
         details['NAME'] = event_name
 
         # Tags
-        event_tags = []
-        event_types = []
-        event_location_gmaps = None
+        event_tags = [a.get_text()
+                      for a in soup.find_all(
+                          'a', href=re.compile('^/events\?tags'))]
+        event_types = [a.get_text()
+                       for a in soup.find_all(
+                           'a', href=re.compile('^/events\?types'))]
         event_location = None
-        d = soup.find('div', id='page-banner')
-        for a in d.find_all('a'):
-            if a['href'][:12] == '/events?tags':
-                event_tags.append(a.get_text())
-            elif a['href'][:12] == '/events?type':
-                event_types.append(a.get_text())
-            elif a['href'].startswith('https://www.google.com/maps'):
-                event_location = a.get_text()
-                event_location_gmaps = a['href']
+        event_location_gmaps = None
+        map_link = soup.find('a',
+                             href=re.compile('^https://www\.google\.com/maps'))
+        if map_link is not None:
+            event_location = map_link.get_text()
+            event_location_gmaps = map_link['href']
         details['TAGS'] = event_tags
         details['TYPES'] = event_types
         details['LOCATION'] = event_location
         details['LOCATION_GMAPS'] = event_location_gmaps
 
-        # Main
-        d = soup.find('div', id='content')
         # External Links
-        event_links = []
-        buttons = d.find('p', **{'class': 'center'})
-        for a in buttons.find_all('a', href=True):
-            if len(a['href']) == 0 or a['href'][0] == '/':
-                continue
-            event_links.append(a['href'])
+        event_links = [a['href']
+                       for a in soup.find_all(
+                           'a',
+                           target='_blank',
+                           href=re.compile('facebook.com/events'))]
         details['SOCIAL'] = event_links
 
         # Main Text
-        t = buttons.find_next_sibling('p')
-        event_description = t.get_text('\n').encode('utf-8')
+        dis = soup.find('div', class_=re.compile(' disclaimer'))
+        main_text = dis.parent.find('div', class_=True)
+        assert(main_text is not None)
+        event_description = (main_text
+                             .get_text('\n', strip=True)
+                             .encode('utf-8'))
         details['DESCRIPTION'] = event_description
 
         # Timing
+        # TODO Cleanup
         event_date_time = None
         event_organizer = None
-        d = soup.find('div', 'subtitle')
-        subtitle = d.get_text('\n', strip=True)
-        for line in subtitle.split('\n'):
-            if len(set(line.split(' ')).intersection(self._get_months())) > 0:
-                event_date_time = line
-            elif line == event_location:
+        no_organizer = None
+        subtitle = (main_text
+                    .parent
+                    .parent
+                    .find('div', class_='row'))
+        for div in subtitle.find_all('div'):
+            d = div.find('div')
+            if d is not None and 'social-share-button' == d['class']:
+                no_organizer = True
+                break
+            subtitle_lines = div.get_text('\n', strip=True)
+            if len(subtitle_lines) == 0:
                 continue
-            elif line in event_types:
-                continue
-            else:
-                event_organizer = line
+            for line in subtitle_lines.split('\n'):
+                if not set(line.split(' ')).isdisjoint(self._get_months()):
+                    event_date_time = line
+                elif line in event_types:
+                    continue
+                elif line == event_location:
+                    no_organizer = True
+                    break
+                else:
+                    event_organizer = line
+                    break
+            if no_organizer or event_organizer is not None:
+                break
+
         details['DATE_TIME'] = event_date_time
         details['ORGANIZER'] = event_organizer
 
@@ -117,28 +136,28 @@ class RiseStrongerScraper(AbstractWebScraper):
         Return URLs of event-pages on website.
         """
         import re
-        from tqdm import tqdm
 
         def _is_pattern(pattern):
             return (lambda x: x and bool(re.compile(pattern).search(x)))
 
         def get_num_pages():
             soup = self.get_soup(self._root_url +
-                                 '/events')
+                                 '/events/list')
             num_pages = 1
-            for a in soup.find_all(href=_is_pattern('^/events\?page=')):
+            for a in soup.find_all(href=_is_pattern('^/events/list\?page=')):
                 num_pages = max(num_pages,
-                                int(a['href'][len('/events?page='):]))
+                                int(a['href'][len('/events/list?page='):]))
             return num_pages
 
         def get_events_on_page(page_num):
-            page_url = '{}/events?page={:d}'.format(
+            page_url = '{}/events/list?page={:d}'.format(
                 self._root_url,
                 page_num)
             soup = self.get_soup(page_url)
             event_urls = []
             filter_strings = ['^/events/map$',
                               '^/events/map\?page=',
+                              '^/events/list\?page=',
                               '^/events/new$']
             is_non_event = _is_pattern('|'.join(filter_strings))
             for a in soup.find_all(href=_is_pattern('^/events/')):
@@ -149,7 +168,7 @@ class RiseStrongerScraper(AbstractWebScraper):
 
         event_urls = []
         num_pages = get_num_pages()
-        for page_num in tqdm(range(1, num_pages + 1), desc='Finding Events'):
+        for page_num in range(1, num_pages + 1):  # , desc='Finding Events'):
             event_urls.extend(get_events_on_page(page_num))
 
         #  append root url as prefix

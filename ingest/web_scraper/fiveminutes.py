@@ -43,18 +43,30 @@ class FiveMinutesScraper(AbstractWebScraper):
         details['LOCATION'] = None
         details['LOCATION_GMAPS'] = None
         details['SOCIAL'] = []
-        details['DATE_TIME'] = (soup
-                                .find('div', class_='message-heading')
-                                .find('div', class_='date')
-                                .get_text(strip=True)
-                                )
 
-        details['ORGANIZER'] = (soup
-                                .find('div', class_='by-line')
-                                .get_text(strip=True)
-                                .replace('by ', '', 1))
+        event_date_time = None
+        try:
+            event_date_time = (soup
+                               .find('div', id='message-heading')
+                               .find('div', class_='date')
+                               .get_text(strip=True)
+                               )
+        except AttributeError:
+            pass
+        details['DATE_TIME'] = event_date_time
+
+        event_organizer = None
+        try:
+            event_organizer = (soup
+                               .find('div', class_='by-line')
+                               .get_text(strip=True)
+                               .replace('by ', '', 1))
+        except AttributeError:
+            pass
+        details['ORGANIZER'] = event_organizer
 
         body = soup.find('div', class_='message-body')
+        #  hyperlinks to markdown links
         for a in body.find_all('a', href=True):
             a.replace_with('[{}]({})'.format(
                 a.get_text(strip=True),
