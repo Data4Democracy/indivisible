@@ -56,7 +56,7 @@ class DailyGrabBackScraper(AbstractWebScraper):
         import re
         details = dict()
         details['SOURCE'] = 'dailygrabback.com'
-        details['NOTES'] = 'Parsed www.dailygrabback.comfor training data'
+        details['NOTES'] = 'Parsed www.dailygrabback.com for training data'
 
         art = soup.find('article')
 
