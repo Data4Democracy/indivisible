@@ -45,6 +45,8 @@ class AbstractWebScraper(object):
         """
         import urllib.request
         from tqdm import tqdm
+        import random
+        import time
         import pandas as pd
 
         event_urls = self.get_event_urls()
@@ -53,6 +55,7 @@ class AbstractWebScraper(object):
         for url in tqdm(event_urls, desc='Parsing Events'):
             logging.debug('Reading webpage at url {}'.format(url))
             try:
+                time.sleep(random.uniform(1, 3))
                 soup = self.get_soup(url)
             except (urllib.error.HTTPError, urllib.error.URLError):
                 error_msg = '\nHTTPError: Failure to read {}\n'.format(url)
