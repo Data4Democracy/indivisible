@@ -1,8 +1,8 @@
 import logging
-from base_scraper import AbstractWebScraper
+from basewebscraper import BaseWebScraper
 
 
-class FiveMinutesScraper(AbstractWebScraper):
+class FiveMinutesScraper(BaseWebScraper):
     _root_url = 'https://tinyletter.com/FiveMinutes'
     _name = 'fiveminutes'
 

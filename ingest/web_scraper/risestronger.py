@@ -1,7 +1,7 @@
-from base_scraper import AbstractWebScraper
+from basewebscraper import BaseWebScraper
 
 
-class RiseStrongerScraper(AbstractWebScraper):
+class RiseStrongerScraper(BaseWebScraper):
     """
     Scrape RiseStronger event pages and parse event details
     into relevant fields.

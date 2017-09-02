@@ -1,7 +1,7 @@
-from base_scraper import AbstractWebScraper
+from basewebscraper import BaseWebScraper
 
 
-class DailyGrabBackScraper(AbstractWebScraper):
+class DailyGrabBackScraper(BaseWebScraper):
     _name = 'dailygrabback'
     _root_url = 'https://www.dailygrabback.com'
 

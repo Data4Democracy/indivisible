@@ -1,8 +1,8 @@
-from base_scraper import AbstractWebScraper
+from basewebscraper import BaseWebScraper
 import logging
 
 
-class CallToActivismScraper(AbstractWebScraper):
+class CallToActivismScraper(BaseWebScraper):
     _name = 'calltoactivism'
     _root_url = 'http://www.calltoactivism.com'
 

@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
-from base_scraper import AbstractWebScraper
+from basewebscraper import BaseWebScraper
 import logging
 
 
-class ResistanceNearMeScraper(AbstractWebScraper):
+class ResistanceNearMeScraper(BaseWebScraper):
     """
     Scraper class for resistancenearme.org
 

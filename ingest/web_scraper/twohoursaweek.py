@@ -1,7 +1,7 @@
-from base_scraper import AbstractWebScraper
+from basewebscraper import BaseWebScraper
 
 
-class TwoHoursAWeekScraper(AbstractWebScraper):
+class TwoHoursAWeekScraper(BaseWebScraper):
     _name = 'twohoursaweek'
     _root_url = 'http://2hoursaweek.org'
 

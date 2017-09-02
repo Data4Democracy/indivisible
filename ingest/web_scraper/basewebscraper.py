@@ -1,14 +1,16 @@
+from abc import ABCMeta, abstractmethod
 import logging
 
 
-class AbstractWebScraper(object):
+class BaseWebScraper(metaclass=ABCMeta):
     """
-    Abstract class that contains functions for scraping action text and
+    Abstract base class that contains functions for scraping action text and
     tags from websites.
     """
     _name = 'abstract'
     _root_url = ''
 
+    @abstractmethod
     def extract_details(self, soup):
         """
         Extract details of an event given the web-page.
@@ -26,6 +28,7 @@ class AbstractWebScraper(object):
         """
         raise NotImplemented
 
+    @abstractmethod
     def get_event_urls(self):
         """
         Return URLs of event-pages on website.
