@@ -37,20 +37,20 @@ _Note: Create dataset for project in data.world and link it here._
 * Use [Pylint](https://www.pylint.org/) for code formatting.
 
 #### Current Issues
-Docker infrastructure for development (#6) is needed.
+Docker infrastructure for development ([#6](https://github.com/Data4Democracy/indivisible/issues/6)) is needed.
 
 After that, the first priority is to handle data ingestion.
 
-* [ ] Establish polling service for incoming emails. See #10 and `ingest/listener.py`.
+* [ ] Establish polling service for incoming emails. See [#10](https://github.com/Data4Democracy/indivisible/issues/10) and [`ingest/listener.py`](https://github.com/Data4Democracy/indivisible/blob/master/ingest/listener.py).
 * [ ] Consume incoming emails for persistence and feature extraction.
-See #1, #8, and `ingest/scraper.py`.
+See [#1](https://github.com/Data4Democracy/indivisible/issues/1), [#8](https://github.com/Data4Democracy/indivisible/issues/8), and [`ingest/scraper.py`](https://github.com/Data4Democracy/indivisible/blob/master/ingest/scraper.py).
 * [ ] Implement storage.
-    - See #3 and #9 for discussion of schema.
-    - See #13 for related implementation details.
-* [ ] Develop feature extraction pipeline to support classification of email contents. See #2 for general discussion on this.
-    - #7 Discuss potential features of interest.
-    - #11 Actual implementation of feature extraction.
-    - #12 Classification strategies. Requires completion of #7 and #11.
+    - See [#3](https://github.com/Data4Democracy/indivisible/issues/3) and [#9](https://github.com/Data4Democracy/indivisible/issues/9) for discussion of schema.
+    - See [#13](https://github.com/Data4Democracy/indivisible/issues/13) for related implementation details.
+* [ ] Develop feature extraction pipeline to support classification of email contents. See [#2](https://github.com/Data4Democracy/indivisible/issues/2) for general discussion on this.
+    - [#7](https://github.com/Data4Democracy/indivisible/issues/7) Discuss potential features of interest.
+    - [#11](https://github.com/Data4Democracy/indivisible/issues/11) Actual implementation of feature extraction.
+    - [#12](https://github.com/Data4Democracy/indivisible/issues/12) Classification strategies. Requires completion of [#7](https://github.com/Data4Democracy/indivisible/issues/7) and [#11](https://github.com/Data4Democracy/indivisible/issues/11).
 
 ### Updating wiki
 See the [github wiki update guide](https://help.github.com/articles/adding-and-editing-wiki-pages-locally/).
