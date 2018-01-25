@@ -41,9 +41,9 @@ Docker infrastructure for development ([#6](https://github.com/Data4Democracy/in
 
 After that, the first priority is to handle data ingestion.
 
-* [ ] Establish polling service for incoming emails. See [#10](https://github.com/Data4Democracy/indivisible/issues/10) and `ingest/listener.py`.
+* [ ] Establish polling service for incoming emails. See [#10](https://github.com/Data4Democracy/indivisible/issues/10) and [`ingest/listener.py`](https://github.com/Data4Democracy/indivisible/blob/master/ingest/listener.py).
 * [ ] Consume incoming emails for persistence and feature extraction.
-See [#1](https://github.com/Data4Democracy/indivisible/issues/1), [#8](https://github.com/Data4Democracy/indivisible/issues/8), and `ingest/scraper.py`.
+See [#1](https://github.com/Data4Democracy/indivisible/issues/1), [#8](https://github.com/Data4Democracy/indivisible/issues/8), and [`ingest/scraper.py`](https://github.com/Data4Democracy/indivisible/blob/master/ingest/scraper.py).
 * [ ] Implement storage.
     - See [#3](https://github.com/Data4Democracy/indivisible/issues/3) and [#9](https://github.com/Data4Democracy/indivisible/issues/9) for discussion of schema.
     - See [#13](https://github.com/Data4Democracy/indivisible/issues/13) for related implementation details.
